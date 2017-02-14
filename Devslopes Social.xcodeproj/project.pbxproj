@@ -14,6 +14,11 @@
 		41D2AA471E51C6CD005478A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41D2AA461E51C6CD005478A5 /* Assets.xcassets */; };
 		41D2AA4A1E51C6CD005478A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41D2AA481E51C6CD005478A5 /* LaunchScreen.storyboard */; };
 		41D2AA521E51C77F005478A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41D2AA511E51C77F005478A5 /* GoogleService-Info.plist */; };
+		41FA6CE81E52E10500B6249E /* FancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA6CE71E52E10500B6249E /* FancyView.swift */; };
+		41FA6CEB1E52E43300B6249E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA6CEA1E52E43300B6249E /* Constants.swift */; };
+		41FA6CED1E52EF9100B6249E /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA6CEC1E52EF9100B6249E /* RoundedButton.swift */; };
+		41FA6D0F1E52F7FC00B6249E /* FancyField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA6D0E1E52F7FC00B6249E /* FancyField.swift */; };
+		41FA6D111E52F92500B6249E /* FancyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA6D101E52F92500B6249E /* FancyButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		41D2AA491E51C6CD005478A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41D2AA4B1E51C6CD005478A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41D2AA511E51C77F005478A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		41FA6CE71E52E10500B6249E /* FancyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyView.swift; sourceTree = "<group>"; };
+		41FA6CEA1E52E43300B6249E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		41FA6CEC1E52EF9100B6249E /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		41FA6D0E1E52F7FC00B6249E /* FancyField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyField.swift; sourceTree = "<group>"; };
+		41FA6D101E52F92500B6249E /* FancyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyButton.swift; sourceTree = "<group>"; };
 		A03F33BDE770427362396BF8 /* Pods-Devslopes Social.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Devslopes Social.release.xcconfig"; path = "Pods/Target Support Files/Pods-Devslopes Social/Pods-Devslopes Social.release.xcconfig"; sourceTree = "<group>"; };
 		A58441FC5F6F6C1B1ED0F876 /* Pods_Devslopes_Social.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Devslopes_Social.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -63,6 +73,8 @@
 		41D2AA3E1E51C6CD005478A5 /* Devslopes Social */ = {
 			isa = PBXGroup;
 			children = (
+				41FA6CE91E52E42500B6249E /* Util */,
+				41FA6CE61E52E0F100B6249E /* View */,
 				41D2AA3F1E51C6CD005478A5 /* AppDelegate.swift */,
 				41D2AA411E51C6CD005478A5 /* ViewController.swift */,
 				41D2AA431E51C6CD005478A5 /* Main.storyboard */,
@@ -72,6 +84,25 @@
 				41D2AA511E51C77F005478A5 /* GoogleService-Info.plist */,
 			);
 			path = "Devslopes Social";
+			sourceTree = "<group>";
+		};
+		41FA6CE61E52E0F100B6249E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				41FA6CE71E52E10500B6249E /* FancyView.swift */,
+				41FA6CEC1E52EF9100B6249E /* RoundedButton.swift */,
+				41FA6D0E1E52F7FC00B6249E /* FancyField.swift */,
+				41FA6D101E52F92500B6249E /* FancyButton.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		41FA6CE91E52E42500B6249E /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				41FA6CEA1E52E43300B6249E /* Constants.swift */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 		5975F1681F587028A04FBFFF /* Pods */ = {
@@ -216,8 +247,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41FA6D0F1E52F7FC00B6249E /* FancyField.swift in Sources */,
 				41D2AA421E51C6CD005478A5 /* ViewController.swift in Sources */,
+				41FA6CED1E52EF9100B6249E /* RoundedButton.swift in Sources */,
+				41FA6D111E52F92500B6249E /* FancyButton.swift in Sources */,
 				41D2AA401E51C6CD005478A5 /* AppDelegate.swift in Sources */,
+				41FA6CE81E52E10500B6249E /* FancyView.swift in Sources */,
+				41FA6CEB1E52E43300B6249E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +419,7 @@
 				41D2AA501E51C6CD005478A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
