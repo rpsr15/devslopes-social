@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 import Firebase
+import SwiftKeychainWrapper
 class ViewController: UIViewController {
 
     @IBOutlet weak var passwordTextField: FancyField!
@@ -68,9 +69,21 @@ class ViewController: UIViewController {
             }
             else{
                 print("user registered \(user)")
+                if let uid = user?.uid{
+                    self.setkeyChain(uid: uid)
+                 
             }
         }
     }
+    }
+        func setkeyChain(uid: String){
+             UserDefaults.standard.setValue(uid, forKey: "uid")
+           
+                self.moveTONextFeedController()
+            
+        }
+        
+        
     @IBAction func facebookLoginPressed(_ sender : AnyObject){
         let facebookLogin = FBSDKLoginManager()
         facebookLogin.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
@@ -93,6 +106,9 @@ class ViewController: UIViewController {
         FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
             if(error == nil){
                 print("authenticated with firebase")
+                if let uid = user?.uid{
+                    self.setkeyChain(uid: uid)
+                }
             }
             else{
                 print(error.debugDescription)
@@ -102,21 +118,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        if FBSDKAccessToken.current() != nil{
-            print("RAVI:user is already logedin \(FBSDKAccessToken.current().debugDescription)")
-            
-        }
-        if let firbaseAuth = FIRAuth.auth(){
-            if let user = firbaseAuth.currentUser{
-                print("RAVI: \(user.email)")
-            }
-        }
-    }
+           }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+   
     
     func displayAlert(message : String){
         if message != "" {
@@ -126,6 +134,12 @@ class ViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     }
-
+    
+    func moveTONextFeedController(){
+        print("RAVI : Move to feed")
+        performSegue(withIdentifier: "goToFeed", sender: nil)
+    }
+    
+   
 }
 

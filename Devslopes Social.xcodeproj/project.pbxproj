@@ -14,6 +14,7 @@
 		41D2AA471E51C6CD005478A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41D2AA461E51C6CD005478A5 /* Assets.xcassets */; };
 		41D2AA4A1E51C6CD005478A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41D2AA481E51C6CD005478A5 /* LaunchScreen.storyboard */; };
 		41D2AA521E51C77F005478A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41D2AA511E51C77F005478A5 /* GoogleService-Info.plist */; };
+		41D8E9E01E54503F0054C0C6 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D8E9DF1E54503F0054C0C6 /* FeedVC.swift */; };
 		41FA6CE81E52E10500B6249E /* FancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA6CE71E52E10500B6249E /* FancyView.swift */; };
 		41FA6CEB1E52E43300B6249E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA6CEA1E52E43300B6249E /* Constants.swift */; };
 		41FA6CED1E52EF9100B6249E /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA6CEC1E52EF9100B6249E /* RoundedButton.swift */; };
@@ -32,6 +33,7 @@
 		41D2AA491E51C6CD005478A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41D2AA4B1E51C6CD005478A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41D2AA511E51C77F005478A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		41D8E9DF1E54503F0054C0C6 /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		41FA6CE71E52E10500B6249E /* FancyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyView.swift; sourceTree = "<group>"; };
 		41FA6CEA1E52E43300B6249E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		41FA6CEC1E52EF9100B6249E /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 		41D2AA3E1E51C6CD005478A5 /* Devslopes Social */ = {
 			isa = PBXGroup;
 			children = (
+				41D8E9DE1E54501A0054C0C6 /* ViewController */,
 				414625501E531A9300A1496C /* Devslopes Social.entitlements */,
 				41FA6CE91E52E42500B6249E /* Util */,
 				41FA6CE61E52E0F100B6249E /* View */,
@@ -86,6 +89,14 @@
 				41D2AA511E51C77F005478A5 /* GoogleService-Info.plist */,
 			);
 			path = "Devslopes Social";
+			sourceTree = "<group>";
+		};
+		41D8E9DE1E54501A0054C0C6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				41D8E9DF1E54503F0054C0C6 /* FeedVC.swift */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 		41FA6CE61E52E0F100B6249E /* View */ = {
@@ -258,6 +269,7 @@
 				41D2AA421E51C6CD005478A5 /* ViewController.swift in Sources */,
 				41FA6CED1E52EF9100B6249E /* RoundedButton.swift in Sources */,
 				41FA6D111E52F92500B6249E /* FancyButton.swift in Sources */,
+				41D8E9E01E54503F0054C0C6 /* FeedVC.swift in Sources */,
 				41D2AA401E51C6CD005478A5 /* AppDelegate.swift in Sources */,
 				41FA6CE81E52E10500B6249E /* FancyView.swift in Sources */,
 				41FA6CEB1E52E43300B6249E /* Constants.swift in Sources */,

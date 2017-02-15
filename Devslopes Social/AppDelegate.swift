@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FBSDKCoreKit
+import SwiftKeychainWrapper
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -19,9 +20,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         // Override point for customization after application launch.
         FIRApp.configure()
+        //print(" ravi \(self.window?.rootViewController)")
+        
+        
+        if isLoggedIn(){
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = mainStoryboard.instantiateViewController(withIdentifier: "feedVC") as! FeedVC
+            self.window?.rootViewController = viewController
+        }
+        
         return true
     }
-    
+    func isLoggedIn() -> Bool{
+        
+        if let key = UserDefaults.standard.value(forKey: "uid"){
+            print("RAVI: key found \(key)")
+            return true
+        }
+        return false
+    }
     func application(_ application: UIApplication , open url : URL , sourceApplication: String? , annotation: Any) -> Bool{
         return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
     }
