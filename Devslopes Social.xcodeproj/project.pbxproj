@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3A97ADA38C2673E1867A1C50 /* Pods_Devslopes_Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A58441FC5F6F6C1B1ED0F876 /* Pods_Devslopes_Social.framework */; };
+		410C409B1E55875B007E490F /* LoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410C409A1E55875B007E490F /* LoadingVC.swift */; };
+		410C40A21E55EF95007E490F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410C40A11E55EF95007E490F /* User.swift */; };
 		41D2AA401E51C6CD005478A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2AA3F1E51C6CD005478A5 /* AppDelegate.swift */; };
 		41D2AA421E51C6CD005478A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2AA411E51C6CD005478A5 /* ViewController.swift */; };
 		41D2AA451E51C6CD005478A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41D2AA431E51C6CD005478A5 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 		41D2AA4A1E51C6CD005478A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41D2AA481E51C6CD005478A5 /* LaunchScreen.storyboard */; };
 		41D2AA521E51C77F005478A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41D2AA511E51C77F005478A5 /* GoogleService-Info.plist */; };
 		41D8E9E01E54503F0054C0C6 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D8E9DF1E54503F0054C0C6 /* FeedVC.swift */; };
+		41D8EA001E548D610054C0C6 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D8E9FF1E548D610054C0C6 /* SignupVC.swift */; };
+		41D8EA021E549B110054C0C6 /* SignupDoneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D8EA011E549B110054C0C6 /* SignupDoneDelegate.swift */; };
 		41FA6CE81E52E10500B6249E /* FancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA6CE71E52E10500B6249E /* FancyView.swift */; };
 		41FA6CEB1E52E43300B6249E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA6CEA1E52E43300B6249E /* Constants.swift */; };
 		41FA6CED1E52EF9100B6249E /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA6CEC1E52EF9100B6249E /* RoundedButton.swift */; };
@@ -24,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		3080EC977E070216F957CA43 /* Pods-Devslopes Social.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Devslopes Social.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Devslopes Social/Pods-Devslopes Social.debug.xcconfig"; sourceTree = "<group>"; };
+		410C409A1E55875B007E490F /* LoadingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingVC.swift; sourceTree = "<group>"; };
+		410C40A11E55EF95007E490F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		414625501E531A9300A1496C /* Devslopes Social.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Devslopes Social.entitlements"; sourceTree = "<group>"; };
 		41D2AA3C1E51C6CD005478A5 /* Devslopes Social.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Devslopes Social.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D2AA3F1E51C6CD005478A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +40,8 @@
 		41D2AA4B1E51C6CD005478A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41D2AA511E51C77F005478A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		41D8E9DF1E54503F0054C0C6 /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		41D8E9FF1E548D610054C0C6 /* SignupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
+		41D8EA011E549B110054C0C6 /* SignupDoneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupDoneDelegate.swift; sourceTree = "<group>"; };
 		41FA6CE71E52E10500B6249E /* FancyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyView.swift; sourceTree = "<group>"; };
 		41FA6CEA1E52E43300B6249E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		41FA6CEC1E52EF9100B6249E /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -55,6 +63,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		410C40A01E55EF8A007E490F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				410C40A11E55EF95007E490F /* User.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		41D2AA331E51C6CD005478A5 = {
 			isa = PBXGroup;
 			children = (
@@ -76,12 +92,12 @@
 		41D2AA3E1E51C6CD005478A5 /* Devslopes Social */ = {
 			isa = PBXGroup;
 			children = (
+				410C40A01E55EF8A007E490F /* Model */,
 				41D8E9DE1E54501A0054C0C6 /* ViewController */,
 				414625501E531A9300A1496C /* Devslopes Social.entitlements */,
 				41FA6CE91E52E42500B6249E /* Util */,
 				41FA6CE61E52E0F100B6249E /* View */,
 				41D2AA3F1E51C6CD005478A5 /* AppDelegate.swift */,
-				41D2AA411E51C6CD005478A5 /* ViewController.swift */,
 				41D2AA431E51C6CD005478A5 /* Main.storyboard */,
 				41D2AA461E51C6CD005478A5 /* Assets.xcassets */,
 				41D2AA481E51C6CD005478A5 /* LaunchScreen.storyboard */,
@@ -94,7 +110,11 @@
 		41D8E9DE1E54501A0054C0C6 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				41D2AA411E51C6CD005478A5 /* ViewController.swift */,
 				41D8E9DF1E54503F0054C0C6 /* FeedVC.swift */,
+				41D8E9FF1E548D610054C0C6 /* SignupVC.swift */,
+				41D8EA011E549B110054C0C6 /* SignupDoneDelegate.swift */,
+				410C409A1E55875B007E490F /* LoadingVC.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -268,11 +288,15 @@
 				41FA6D0F1E52F7FC00B6249E /* FancyField.swift in Sources */,
 				41D2AA421E51C6CD005478A5 /* ViewController.swift in Sources */,
 				41FA6CED1E52EF9100B6249E /* RoundedButton.swift in Sources */,
+				41D8EA001E548D610054C0C6 /* SignupVC.swift in Sources */,
+				41D8EA021E549B110054C0C6 /* SignupDoneDelegate.swift in Sources */,
 				41FA6D111E52F92500B6249E /* FancyButton.swift in Sources */,
 				41D8E9E01E54503F0054C0C6 /* FeedVC.swift in Sources */,
 				41D2AA401E51C6CD005478A5 /* AppDelegate.swift in Sources */,
+				410C40A21E55EF95007E490F /* User.swift in Sources */,
 				41FA6CE81E52E10500B6249E /* FancyView.swift in Sources */,
 				41FA6CEB1E52E43300B6249E /* Constants.swift in Sources */,
+				410C409B1E55875B007E490F /* LoadingVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
