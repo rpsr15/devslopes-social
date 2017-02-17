@@ -10,6 +10,7 @@
 		3A97ADA38C2673E1867A1C50 /* Pods_Devslopes_Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A58441FC5F6F6C1B1ED0F876 /* Pods_Devslopes_Social.framework */; };
 		410C409B1E55875B007E490F /* LoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410C409A1E55875B007E490F /* LoadingVC.swift */; };
 		410C40A21E55EF95007E490F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410C40A11E55EF95007E490F /* User.swift */; };
+		4128D1351E56E7EA00BFCEF0 /* AddPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4128D1341E56E7EA00BFCEF0 /* AddPostVC.swift */; };
 		414E39691E56296A00740FC0 /* SocialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414E39681E56296A00740FC0 /* SocialCell.swift */; };
 		414E396B1E562B3000740FC0 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414E396A1E562B3000740FC0 /* Post.swift */; };
 		41D2AA401E51C6CD005478A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2AA3F1E51C6CD005478A5 /* AppDelegate.swift */; };
@@ -32,6 +33,7 @@
 		3080EC977E070216F957CA43 /* Pods-Devslopes Social.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Devslopes Social.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Devslopes Social/Pods-Devslopes Social.debug.xcconfig"; sourceTree = "<group>"; };
 		410C409A1E55875B007E490F /* LoadingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingVC.swift; sourceTree = "<group>"; };
 		410C40A11E55EF95007E490F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4128D1341E56E7EA00BFCEF0 /* AddPostVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPostVC.swift; sourceTree = "<group>"; };
 		414625501E531A9300A1496C /* Devslopes Social.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Devslopes Social.entitlements"; sourceTree = "<group>"; };
 		414E39681E56296A00740FC0 /* SocialCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialCell.swift; sourceTree = "<group>"; };
 		414E396A1E562B3000740FC0 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				41D8E9FF1E548D610054C0C6 /* SignupVC.swift */,
 				41D8EA011E549B110054C0C6 /* SignupDoneDelegate.swift */,
 				410C409A1E55875B007E490F /* LoadingVC.swift */,
+				4128D1341E56E7EA00BFCEF0 /* AddPostVC.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41FA6D0F1E52F7FC00B6249E /* FancyField.swift in Sources */,
+				4128D1351E56E7EA00BFCEF0 /* AddPostVC.swift in Sources */,
 				41D2AA421E51C6CD005478A5 /* ViewController.swift in Sources */,
 				41FA6CED1E52EF9100B6249E /* RoundedButton.swift in Sources */,
 				41D8EA001E548D610054C0C6 /* SignupVC.swift in Sources */,

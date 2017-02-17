@@ -28,14 +28,14 @@ class SocialCell : UITableViewCell {
     
     func configurePost(post : Post){
         self.userNameLabel.text = post.userName
-        if let desc = post.descriptionText {
-            self.descriptionLabel.text = desc
+        if  post.postStory != "" {
+            self.descriptionLabel.text = post.postStory
             self.descriptionLabel.isHidden = false
         }
         else{
             self.descriptionLabel.isHidden = true
         }
-        if let imagePath = post.postImageURLString{
+        if  post.postImageURL != ""{
             //set image
             
             self.postImage.isHidden = false

@@ -132,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-228" y="63"/>
+            <point key="canvasLocation" x="-118" y="63"/>
         </scene>
         <!--SignupVC-->
         <scene sceneID="cl1-ei-K6l">
@@ -402,30 +402,138 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="1DM-x5-1st" id="0AM-ze-uHo"/>
-                        <segue destination="mau-fG-Fc2" kind="show" identifier="addPostVC" id="lIn-jN-l20"/>
+                        <segue destination="VBa-Fl-UO3" kind="show" identifier="addPostVC" id="CC3-RK-B8L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSd-S0-Ryw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="674" y="63"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="7He-cz-kHJ">
+        <!--AddPostVC-->
+        <scene sceneID="ZGX-iw-Wgg">
             <objects>
-                <viewController id="mau-fG-Fc2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addPostVC" id="VBa-Fl-UO3" userLabel="AddPostVC" customClass="AddPostVC" customModule="Devslopes_Social" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Bqp-Y9-Rp8"/>
-                        <viewControllerLayoutGuide type="bottom" id="KIF-h4-6au"/>
+                        <viewControllerLayoutGuide type="top" id="QVa-PF-BwN"/>
+                        <viewControllerLayoutGuide type="bottom" id="ejV-zt-tBG"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Q1v-oD-hBD">
+                    <view key="view" contentMode="scaleToFill" id="giG-70-aXT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j4S-n2-K1F" customClass="FancyView" customModule="Devslopes_Social" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="devslopes-logo" translatesAutoresizingMaskIntoConstraints="NO" id="NTX-ii-ADG">
+                                        <rect key="frame" x="113" y="28" width="150" height="94"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgn-12-Ebg">
+                                        <rect key="frame" x="4" y="8" width="37" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="I4H-W5-D5P"/>
+                                            <constraint firstAttribute="width" constant="37" id="f7V-SX-8Mn"/>
+                                        </constraints>
+                                        <state key="normal" image="back"/>
+                                        <connections>
+                                            <action selector="backButtonPressed:" destination="VBa-Fl-UO3" eventType="touchUpInside" id="7NM-Tv-oMx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.73725490199999999" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="NTX-ii-ADG" firstAttribute="centerX" secondItem="j4S-n2-K1F" secondAttribute="centerX" id="0HT-SJ-Tzz"/>
+                                    <constraint firstItem="dgn-12-Ebg" firstAttribute="top" secondItem="j4S-n2-K1F" secondAttribute="top" constant="8" id="2Wg-s9-BPG"/>
+                                    <constraint firstItem="NTX-ii-ADG" firstAttribute="centerY" secondItem="j4S-n2-K1F" secondAttribute="centerY" id="3AG-QV-LDe"/>
+                                    <constraint firstItem="NTX-ii-ADG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="j4S-n2-K1F" secondAttribute="top" constant="8" id="8Li-c3-2xA"/>
+                                    <constraint firstItem="dgn-12-Ebg" firstAttribute="leading" secondItem="j4S-n2-K1F" secondAttribute="leading" constant="4" id="SKy-zd-43t"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="NTX-ii-ADG" secondAttribute="bottom" constant="8" id="alX-9d-MRL"/>
+                                    <constraint firstAttribute="height" constant="150" id="ki5-xR-mU7"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Xy-cq-Atk" customClass="FancyView" customModule="Devslopes_Social" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="592" width="375" height="75"/>
+                                <color key="backgroundColor" red="0.0" green="0.51372549020000002" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="mjK-ih-l17"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ad-T9-70D">
+                                <rect key="frame" x="0.0" y="150" width="375" height="442"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="6gw-NM-JbM">
+                                        <rect key="frame" x="8" y="51" width="359" height="341"/>
+                                        <subviews>
+                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EFY-RC-KYW">
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="128"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="128" id="K7p-lL-cwl"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQq-pf-iQ4">
+                                                <rect key="frame" x="0.0" y="150" width="359" height="30"/>
+                                                <state key="normal" title="Tap here to add an image"/>
+                                                <connections>
+                                                    <action selector="addImageButton:" destination="VBa-Fl-UO3" eventType="touchUpInside" id="ul1-zw-kMu"/>
+                                                </connections>
+                                            </button>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add you story here ...." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eGn-FP-ezm">
+                                                <rect key="frame" x="0.0" y="202" width="359" height="80"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="4Ds-HP-yt8"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNS-Mg-lSd" customClass="FancyButton" customModule="Devslopes_Social" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="304" width="359" height="37"/>
+                                                <color key="backgroundColor" red="0.86666666670000003" green="0.17254901959999999" blue="0.0" alpha="0.72381853910000005" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                                <state key="normal" title="Done">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.87261551000000004" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="doneAddingPost:" destination="VBa-Fl-UO3" eventType="touchUpInside" id="k0Q-nu-DlQ"/>
+                                                    <action selector="doneEditingPressed:" destination="coj-iU-5YZ" eventType="touchUpInside" id="ZrM-hF-O1z"/>
+                                                    <action selector="emailSignInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TAt-n7-5Nb"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="6gw-NM-JbM" firstAttribute="leading" secondItem="3ad-T9-70D" secondAttribute="leading" constant="8" id="5Hq-uU-Jwe"/>
+                                    <constraint firstAttribute="trailing" secondItem="6gw-NM-JbM" secondAttribute="trailing" constant="8" id="7gD-oc-26b"/>
+                                    <constraint firstItem="6gw-NM-JbM" firstAttribute="centerY" secondItem="3ad-T9-70D" secondAttribute="centerY" id="H9e-2v-mkc"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="9Xy-cq-Atk" secondAttribute="trailing" id="7u7-dk-7Wa"/>
+                            <constraint firstAttribute="trailing" secondItem="j4S-n2-K1F" secondAttribute="trailing" id="CXN-ly-dKB"/>
+                            <constraint firstItem="j4S-n2-K1F" firstAttribute="top" secondItem="giG-70-aXT" secondAttribute="top" id="EFH-Qd-GpJ"/>
+                            <constraint firstAttribute="trailing" secondItem="3ad-T9-70D" secondAttribute="trailing" id="HRW-jF-AXn"/>
+                            <constraint firstItem="9Xy-cq-Atk" firstAttribute="leading" secondItem="giG-70-aXT" secondAttribute="leading" id="JCk-aS-M9q"/>
+                            <constraint firstItem="ejV-zt-tBG" firstAttribute="top" secondItem="9Xy-cq-Atk" secondAttribute="bottom" id="R6C-eQ-uFS"/>
+                            <constraint firstItem="9Xy-cq-Atk" firstAttribute="top" secondItem="3ad-T9-70D" secondAttribute="bottom" id="ecj-Tc-D0j"/>
+                            <constraint firstItem="3ad-T9-70D" firstAttribute="leading" secondItem="giG-70-aXT" secondAttribute="leading" id="hwX-CB-UOV"/>
+                            <constraint firstItem="3ad-T9-70D" firstAttribute="top" secondItem="j4S-n2-K1F" secondAttribute="bottom" id="oMN-zX-S40"/>
+                            <constraint firstItem="j4S-n2-K1F" firstAttribute="leading" secondItem="giG-70-aXT" secondAttribute="leading" id="pMd-nu-ets"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addImageButton" destination="QQq-pf-iQ4" id="NUA-32-C4t"/>
+                        <outlet property="addPostButton" destination="bNS-Mg-lSd" id="yFE-KI-nMK"/>
+                        <outlet property="backButton" destination="dgn-12-Ebg" id="lRT-bt-Pt2"/>
+                        <outlet property="postImage" destination="EFY-RC-KYW" id="cl0-Ns-eik"/>
+                        <outlet property="storyText" destination="eGn-FP-ezm" id="MJN-eb-spH"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ijf-ep-kcf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3dR-qN-MUu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1511" y="63"/>
+            <point key="canvasLocation" x="1789.5999999999999" y="54.422788605697157"/>
         </scene>
     </scenes>
     <resources>

@@ -10,6 +10,8 @@
 import UIKit
 import Firebase
 
+let storage  = FIRStorage.storage()
+let storageRef = storage.reference()
 
 var ref = FIRDatabase.database().reference()
 let SHADOW_GRAY : CGFloat = 120.0 / 255.0
@@ -65,4 +67,8 @@ extension UIImage {
         draw(in: CGRect(origin: .zero, size: canvasSize))
         return UIGraphicsGetImageFromCurrentImageContext()
     }
+}
+
+enum storyboardIdentifiers  : String {
+    case MainVC = "loginVC" , SignUpVC = "signupVC" , FeedVC = "feedVC", AddPostVC = "addPostVC"
 }
