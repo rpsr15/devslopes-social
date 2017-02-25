@@ -11,6 +11,7 @@
 		410C409B1E55875B007E490F /* LoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410C409A1E55875B007E490F /* LoadingVC.swift */; };
 		410C40A21E55EF95007E490F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410C40A11E55EF95007E490F /* User.swift */; };
 		4128D1351E56E7EA00BFCEF0 /* AddPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4128D1341E56E7EA00BFCEF0 /* AddPostVC.swift */; };
+		413B08541E5B04A8006E4A4C /* FancyRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413B08531E5B04A8006E4A4C /* FancyRoundButton.swift */; };
 		414E39691E56296A00740FC0 /* SocialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414E39681E56296A00740FC0 /* SocialCell.swift */; };
 		414E396B1E562B3000740FC0 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414E396A1E562B3000740FC0 /* Post.swift */; };
 		41D2AA401E51C6CD005478A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2AA3F1E51C6CD005478A5 /* AppDelegate.swift */; };
@@ -33,7 +34,9 @@
 		3080EC977E070216F957CA43 /* Pods-Devslopes Social.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Devslopes Social.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Devslopes Social/Pods-Devslopes Social.debug.xcconfig"; sourceTree = "<group>"; };
 		410C409A1E55875B007E490F /* LoadingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingVC.swift; sourceTree = "<group>"; };
 		410C40A11E55EF95007E490F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		411ED12D1E5F2DEF00D9D712 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		4128D1341E56E7EA00BFCEF0 /* AddPostVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPostVC.swift; sourceTree = "<group>"; };
+		413B08531E5B04A8006E4A4C /* FancyRoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyRoundButton.swift; sourceTree = "<group>"; };
 		414625501E531A9300A1496C /* Devslopes Social.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Devslopes Social.entitlements"; sourceTree = "<group>"; };
 		414E39681E56296A00740FC0 /* SocialCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialCell.swift; sourceTree = "<group>"; };
 		414E396A1E562B3000740FC0 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -135,6 +138,7 @@
 				41FA6CEC1E52EF9100B6249E /* RoundedButton.swift */,
 				41FA6D0E1E52F7FC00B6249E /* FancyField.swift */,
 				41FA6D101E52F92500B6249E /* FancyButton.swift */,
+				413B08531E5B04A8006E4A4C /* FancyRoundButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -143,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				41FA6CEA1E52E43300B6249E /* Constants.swift */,
+				411ED12D1E5F2DEF00D9D712 /* MyPlayground.playground */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -300,6 +305,7 @@
 				41FA6CED1E52EF9100B6249E /* RoundedButton.swift in Sources */,
 				41D8EA001E548D610054C0C6 /* SignupVC.swift in Sources */,
 				41D8EA021E549B110054C0C6 /* SignupDoneDelegate.swift in Sources */,
+				413B08541E5B04A8006E4A4C /* FancyRoundButton.swift in Sources */,
 				414E396B1E562B3000740FC0 /* Post.swift in Sources */,
 				41FA6D111E52F92500B6249E /* FancyButton.swift in Sources */,
 				41D8E9E01E54503F0054C0C6 /* FeedVC.swift in Sources */,

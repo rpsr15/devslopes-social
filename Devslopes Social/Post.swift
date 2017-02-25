@@ -11,15 +11,25 @@ class Post : NSObject{
     
     
     
-    
-    
+    private var _likedBy : [String]!
+    private var _createdOn : TimeInterval!
     private var _postStory : String!
     private var _postImageURLString : String!
-    private var _likes = 0
+    private var _likes : Int {
+        return self._likedBy.count
+    }
     private var _userId : String!
     private var _userName : String!
     private var _postId : String!
     
+    var likedBy  : [String]!{
+        get{
+            return self._likedBy
+        }
+        set{
+            self._likedBy = newValue
+        }
+    }
     var postStory : String{
         set{
             self._postStory = newValue
@@ -37,10 +47,7 @@ class Post : NSObject{
         }
     }
     var likes : Int{
-        set{
-            self._likes = newValue
-            
-        }
+       
         get{
         return self._likes
         }
@@ -56,8 +63,19 @@ class Post : NSObject{
         return _postId
     }
     
-    init(id : String ,story : String? , imagePath : String? , likes : Int , userId : String , userName  : String ) {
-        self._postId = id
+    var createdOn : TimeInterval{
+        return self._createdOn
+    }
+    
+    init(postid : String?, story : String? , imagePath : String?  , userId : String , userName  : String  ) {
+        if postid == nil {
+            self._postId =  "\(userId)\(Int(NSDate().timeIntervalSince1970))"
+            print("human post id is nil creating default \(self._postId)")
+        }
+        else{
+            print("human post id is present \(self._postId)")
+            self._postId = postid
+        }
         if let story = story{
             self._postStory = story
         }
@@ -72,10 +90,12 @@ class Post : NSObject{
         else{
             self._postImageURLString = ""
         }
-        self._likes = likes
+        
         self._userId = userId
         self._userName = userName
+        self._createdOn = NSDate().timeIntervalSince1970
         
+        self._likedBy = [String]()
         
     }
     func getDictionary() -> [String : Any]{
@@ -85,7 +105,8 @@ class Post : NSObject{
         dict["postStory"] = postStory
         dict["userId"] = userId
         dict["userName"] = userName
-        
+        dict["createdOn"] = _createdOn
+        dict["likedBy"] = getLikedByDict(likedBy: likedBy)
         return dict
     }
     
@@ -93,4 +114,37 @@ class Post : NSObject{
         return userName + userId + postStory + postImageURL + "\(likes)"
     }
     
+    func update(){
+        ref.child("posts").child(self.postId).updateChildValues(self.getDictionary())
+    }
+    func likedPost(userName : String){
+        if !likedBy.contains(userName){
+            likedBy.append(userName)
+            update()
+        }
+    }
+    
+    func unLikedByUser(userName : String){
+        if likedBy.contains(userName){
+            if   let indexOf = likedBy.index(of: userName){
+                likedBy.remove(at: indexOf)
+                update()
+            }
+        }
+    }
+    
+    func isLikedBy(userName :String) -> Bool{
+        return self.likedBy.contains(userName)
+    }
+    
+    func getLikedByDict(likedBy : [String]) -> [String : Bool]{
+        var result = [String : Bool]()
+        for t in likedBy {
+            result[t] = true
+        }
+        return result
+    }
+    
 }
+
+

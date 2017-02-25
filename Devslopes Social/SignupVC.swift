@@ -7,8 +7,8 @@
 //
 
 import UIKit
-
-class SignupVC: UIViewController , UIImagePickerControllerDelegate , UINavigationControllerDelegate {
+import Firebase
+class SignupVC: UIViewController , UIImagePickerControllerDelegate , UITextFieldDelegate , UINavigationControllerDelegate {
     var profileImage : UIImage?
     var imagePicker  : UIImagePickerController?
     var delegate : SignupDoneDelegate?
@@ -17,12 +17,16 @@ class SignupVC: UIViewController , UIImagePickerControllerDelegate , UINavigatio
     @IBAction func doneEditingPressed(_ sender : AnyObject){
         if let userName = self.userNameTextField.text , userName != "" {
             
+            var imagePath  : String? = nil
+            if let image = profileImage , let data = UIImagePNGRepresentation(image){
+                imagePath = FIRAuth.auth()?.currentUser?.uid ?? "\(userName)\(NSDate.timeIntervalSinceReferenceDate)"
+            storageRef.child("userPhotos").child(imagePath!).put(data)
+                
+            }
             
-            //todo : code to store info in data base
-            
-            
-             delegate?.didComplete(userName: userName , profileImage: profileImage)
+            delegate?.didComplete(userName: userName, profileImagePath: imagePath)
             self.dismiss(animated: true, completion: nil)
+           
         }
         else{
         displayAlert(sender: self, message: "Please select username", completion: nil)
@@ -37,6 +41,8 @@ class SignupVC: UIViewController , UIImagePickerControllerDelegate , UINavigatio
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.userNameTextField.delegate = self
         imagePicker = UIImagePickerController()
         imagePicker?.delegate = self
         self.userProfileThumb.imageView?.contentMode = .scaleAspectFit
@@ -53,6 +59,8 @@ class SignupVC: UIViewController , UIImagePickerControllerDelegate , UINavigatio
         // Dispose of any resources that can be recreated.
     }
     
+    
+    // MAKR: Imagepickercontrollerdelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
@@ -78,5 +86,9 @@ class SignupVC: UIViewController , UIImagePickerControllerDelegate , UINavigatio
         // Pass the selected object to the new view controller.
     }
     */
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return true
+    }
 
 }

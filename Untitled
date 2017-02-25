@@ -1,0 +1,22 @@
+enum CardCategory{
+case Animal,Food,Instrument
+}
+struct Answer {
+  var ans : String
+  var isCorrect : Bool
+}
+
+class Card {
+  private var category : CardCategory!
+  private var imageURL : String?
+  private var answers : [Answer]!
+
+  init(category : CardCategory, imageURL : imagePath , answers : [Answer]){
+    self.category =category
+    self.imageURL = imagePath
+    self.answers = answers
+  }
+}
+
+
+let testCard = Card()

@@ -7,43 +7,24 @@
 //
 
 import UIKit
+import Firebase
 
 
-class User {
-    private var _uid : String!
-    private var _userName : String!
-    private var _profileImage : UIImage?
+func getUIDForUserName(userName : String , completion : @escaping ( _ userid :String) -> ()){
     
-    var uid : String!{
-        get{
-            if _uid == nil{
-                _uid = ""
+    if let uid = UserDefaults.standard.value(forKey: userName) as? String{
+       completion(uid)
+    }
+    _ = ref.child("users").child(userName).observe(.value, with: { (snapshot) in
+        print(snapshot.value)
+        if let dict = snapshot.value as? [String : String]{
+            if let uid = dict["uid"]{
+                //print(uid)
+                completion(uid)
+                UserDefaults.standard.set(uid, forKey: userName)
+                UserDefaults.standard.synchronize()
             }
-            return self._uid
         }
-        set{
-            self._uid = newValue
-        }
-    }
-    var userName : String!{
-        get{
-            if _userName == nil{
-                _userName = ""
-            }
-            return self._userName
-        }
-        
-        set{
-            self._userName = newValue
-        }
-    }
-    
-    var profileImage : UIImage?{
-        get{
-            return _profileImage
-        }
-        set{
-            self._profileImage = newValue
-        }
-    }
+    })
+  
 }

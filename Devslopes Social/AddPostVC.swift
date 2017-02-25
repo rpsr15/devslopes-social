@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-class AddPostVC: UIViewController , UIImagePickerControllerDelegate , UINavigationControllerDelegate {
+class AddPostVC: UIViewController , UIImagePickerControllerDelegate , UINavigationControllerDelegate , UITextViewDelegate {
     
     @IBOutlet weak var storyText: UITextView!
     @IBOutlet weak var postImage: UIImageView!
@@ -31,15 +31,14 @@ class AddPostVC: UIViewController , UIImagePickerControllerDelegate , UINavigati
     }
     @IBAction func backButtonPressed(_ sender : UIButton){
         self.uploadTask?.cancel()
+        self.dismiss(animated: true, completion: nil)
         
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginUser()
-        if self.post == nil {
-             let postid = "uid" + "\(NSDate.timeIntervalSinceReferenceDate)".replacingOccurrences(of: ".", with: "")
-            post = Post(id: postid, story: nil, imagePath: nil, likes: 0, userId: "userid", userName: "rpsr15")
-        }
+        self.storyText.delegate = self
+       // loginUser()
+       
         imagePicker.delegate = self
        // post = Post()
         // Do any additional setup after loading the view.
@@ -56,12 +55,15 @@ class AddPostVC: UIViewController , UIImagePickerControllerDelegate , UINavigati
     
     @IBAction func doneAddingPost(_ sender: FancyButton) {
         sender.waitforUpdate()
+        let uid = UserDefaults.standard.value(forKey: "uid") as! String
+        let userName = UserDefaults.standard.value(forKey: "userName") as! String
+        self.post = Post(postid: nil, story: self.storyText.text, imagePath: nil, userId: uid, userName: userName )
         self.addImageButton.isEnabled = false
         var imagePath = ""
-        if let image = postImage.image {
+        if let image = postImage.image?.resized(toWidth: 360.0) {
             imagePath = post.postId + ".jpg"
            post.postImageURL = imagePath
-            let imageRef = storageRef.child(imagePath)
+            let imageRef = storageRef.child("postImages").child(imagePath)
             
             if let data = UIImageJPEGRepresentation(image, 1.0){
                 uploadTask = imageRef.put(data, metadata: nil, completion: { (metadata, error) in
@@ -96,6 +98,8 @@ class AddPostVC: UIViewController , UIImagePickerControllerDelegate , UINavigati
          ref.child("posts").child(post.postId).setValue(post.getDictionary())
         addPostButton.endWaiting()
         self.addImageButton.isEnabled = true
+        //success
+        self.dismiss(animated: true, completion: nil)
     }
 
   
@@ -116,5 +120,13 @@ class AddPostVC: UIViewController , UIImagePickerControllerDelegate , UINavigati
         }
         picker.dismiss(animated: true, completion: nil)
     }
-
+    
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+      view.endEditing(true)
+        return true
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        view.endEditing(true)
+    
+    }
 }

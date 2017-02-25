@@ -10,6 +10,7 @@ target 'Devslopes Social' do
   pod 'Firebase/Storage'  
   pod 'FBSDKLoginKit'
   pod 'SwiftKeychainWrapper'
+  pod 'Alamofire'
  # Pods for Devslopes Social
 
 

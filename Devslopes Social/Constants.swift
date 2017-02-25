@@ -72,3 +72,8 @@ extension UIImage {
 enum storyboardIdentifiers  : String {
     case MainVC = "loginVC" , SignUpVC = "signupVC" , FeedVC = "feedVC", AddPostVC = "addPostVC"
 }
+
+
+enum SortingCriteria : Int {
+    case NewestFirst = 0 , MostLikedFirst = 1
+}

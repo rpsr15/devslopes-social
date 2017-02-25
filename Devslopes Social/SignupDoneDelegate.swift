@@ -9,6 +9,6 @@
 import UIKit
 
 protocol SignupDoneDelegate {
-    func didComplete(userName : String, profileImage : UIImage?)
+    func didComplete(userName : String, profileImagePath  : String?)
     func userCancelledSignup()
 }

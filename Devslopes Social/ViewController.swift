@@ -10,11 +10,20 @@ import UIKit
 import FBSDKLoginKit
 import Firebase
 import SwiftKeychainWrapper
-class ViewController: UIViewController , SignupDoneDelegate{
-     var currentUser  :   User?
+
+class ViewController: UIViewController , SignupDoneDelegate ,UITextFieldDelegate{
+    var currentUser  :   FIRUser?
     @IBOutlet weak var passwordTextField: FancyField!
     @IBOutlet weak var emailTextField: FancyField!
     @IBOutlet weak var emailSignInButton : FancyButton!
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+      
+    }
+    
+    
     @IBAction func emailSignInPressed(_ sender: FancyButton){
         
         if let email = self.emailTextField.text , let password = self.passwordTextField.text , email != "" , password != ""{
@@ -58,12 +67,19 @@ class ViewController: UIViewController , SignupDoneDelegate{
                     }
                 }
                 else{
-                    self.currentUser = User()
-                    self.currentUser?.uid = user?.uid
-                    print("singed in \(user)")
+                  
+                    print("singed in \(user?.photoURL)")
+                
+                    self.currentUser = user
+                    UserDefaults.standard.set(user?.displayName, forKey: "userName")
+                    UserDefaults.standard.synchronize()
+                    self.setkeyChain(uid: (user?.uid)!)
                     sender.endWaiting()
                     
-                    // TODO: MOve to next
+                    // signed in successfully , move to feedvc
+                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let viewController = mainStoryboard.instantiateViewController(withIdentifier: "feedVC") as! FeedVC
+                   self.present(viewController, animated: true, completion: nil)
                 }
                 
             }
@@ -72,6 +88,9 @@ class ViewController: UIViewController , SignupDoneDelegate{
         
     }
     func registerUser(email: String , password: String ){
+        
+    
+        
         
         FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
             if let error  = error as? NSError{
@@ -89,12 +108,8 @@ class ViewController: UIViewController , SignupDoneDelegate{
             }
             else{
                 print("user registered \(user)")
-                if let uid = user?.uid{
-                   self.currentUser =  User()
-                    self.currentUser?.uid = uid
-                    
-                  //  pushTo(sender: self, viewController: .SignupVC)
-                   // move once back
+            
+                    self.setkeyChain(uid: (user?.uid)!)
                     if  let dest = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerType.SignupVC.rawValue) as? SignupVC{
                         dest.delegate = self
                        
@@ -104,14 +119,14 @@ class ViewController: UIViewController , SignupDoneDelegate{
                     }
                     
                  
-            }
+            
         }
     }
         
     }
         func setkeyChain(uid: String){
              UserDefaults.standard.setValue(uid, forKey: "uid")
-           
+            UserDefaults.standard.synchronize()
                // self.moveTONextFeedController()
             
         }
@@ -136,9 +151,11 @@ class ViewController: UIViewController , SignupDoneDelegate{
     }
     
     func firebaseAuth(_ credential: FIRAuthCredential){
+    
         FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
             if(error == nil){
                 print("authenticated with firebase")
+                self.currentUser = FIRAuth.auth()?.currentUser
                 if let uid = user?.uid{
                     self.setkeyChain(uid: uid)
                 }
@@ -150,6 +167,8 @@ class ViewController: UIViewController , SignupDoneDelegate{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
            }
 
@@ -167,25 +186,29 @@ class ViewController: UIViewController , SignupDoneDelegate{
     
     
     // MARK: SIGNUPDONEDELEGATE
-    func didComplete(userName: String, profileImage: UIImage?){
-        if let uid = self.currentUser?.uid , uid != ""  , let email = self.emailTextField.text , let pass = self.passwordTextField.text{
-            print("shivani did complete")
+    func didComplete(userName: String, profileImagePath : String?){
+       
+        if let user = FIRAuth.auth()?.currentUser{
+            let changeRequest = user.profileChangeRequest()
+            changeRequest.displayName = userName
+            if let path = profileImagePath , let url = URL(string: path){
+                changeRequest.photoURL = url
+            }
+            ref.child("users").child(userName).setValue(["uid" : user.uid])
+            changeRequest.commitChanges(completion: { (error) in
+                if error != nil {
+                    displayAlert(sender: self, message: "Coudlnot set username and imagepath", completion: nil)
+                }
+                
+                // TODO: save userdefaults and move on to next viewcontroller
+                UserDefaults.standard.setValue(userName, forKey: "userName")
+                UserDefaults.standard.synchronize()
+                
+                
+                
+            })
             
-            self.currentUser?.userName = userName
-            self.currentUser?.profileImage = profileImage
-           
-            //save details now 
-             ref.child("users").child(uid).setValue( ["email" : email,"password" : pass , "imagepath" : "https"])
-
-           // user.setValue(["username":userName , "password" : self.passwordTextField.text , "email" : self.emailTextField.text])
-            
-            //user.setValue(["password" : self.passwordTextField.text ])
-            //user.setValue(["email" : self.emailTextField.text])
-             self.setkeyChain(uid: uid)
-              moveTONextFeedController()
-        }
-        else{
-            displayAlert(sender : self  , message: "Couldnot register user. Please contact support team." , completion: nil)
+         
         }
       
     }
@@ -197,6 +220,12 @@ class ViewController: UIViewController , SignupDoneDelegate{
             currentUser.delete(completion: nil)
         }
     }
-   
+   // MARK: UITextfieldDelegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+       view.endEditing(true)
+        return true
+    }
+    
+
 }
 
